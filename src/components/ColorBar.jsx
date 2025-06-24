@@ -32,8 +32,11 @@ function ColorBar({ onColor }) {
           <button
             key={color}
             onClick={() => {
+              if (!isHovered) return;
               onColor(color);
-              console.log(color);
+              if (window.innerWidth <= 768) {
+                setIsHovered(false);
+              }
             }}
             className={`size-full rounded-full border-2 cursor-pointer ${colorClassName} `}
           ></button>
